@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trailhead Survey</title>
+  <style>
+    :root {
+      --bg: #1d2b3a;
+      --card: #243b53;
+      --accent: #f4a259;
+      --text: #f0f4f8;
+      --muted: #bcccdc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: var(--text);
+      background: linear-gradient(160deg, #102a43 0%, #1d2b3a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+    }
+
+    #title {
+      margin: 0 0 8px;
+      font-size: 2.2rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    #description {
+      margin: 0 0 28px;
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 520px;
+    }
+
+    #survey-form {
+      width: 100%;
+      max-width: 560px;
+      background: var(--card);
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .field {
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+      padding: 11px 12px;
+      border: 1px solid #486581;
+      border-radius: 8px;
+      background: #1d2b3a;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(244, 162, 89, 0.25);
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    fieldset {
+      border: 1px solid #486581;
+      border-radius: 8px;
+      margin: 0 0 22px;
+      padding: 14px 16px;
+    }
+
+    legend { padding: 0 6px; font-weight: 600; color: var(--muted); }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+      font-weight: normal;
+      color: var(--text);
+    }
+
+    .option input { width: auto; }
+
+    #submit {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #102a43;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.2s ease;
+    }
+
+    #submit:hover { background: #f6b67c; }
+    #submit:active { transform: scale(0.98); }
+  </style>
+</head>
+<body>
+  <h1 id="title">Trailhead Adventure Survey</h1>
+  <p id="description">
+    Help us shape better hiking trips by sharing a few details about your outdoor habits.
+  </p>
+
+  <form id="survey-form">
+    <div class="field">
+      <label id="name-label" for="name">Full Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Enter your full name"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label id="email-label" for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label id="number-label" for="number">Age</label>
+      <input
+        id="number"
+        type="number"
+        min="10"
+        max="99"
+        placeholder="Enter your age (10-99)"
+      />
+    </div>
+
+    <div class="field">
+      <label for="dropdown">How often do you hike?</label>
+      <select id="dropdown">
+        <option value="" disabled selected>Select an option</option>
+        <option value="weekly">Every week</option>
+        <option value="monthly">A few times a month</option>
+        <option value="yearly">A few times a year</option>
+        <option value="rarely">Rarely</option>
+      </select>
+    </div>
+
+    <fieldset>
+      <legend>What is your hiking experience level?</legend>
+      <label class="option">
+        <input type="radio" name="experience" value="beginner" /> Beginner
+      </label>
+      <label class="option">
+        <input type="radio" name="experience" value="intermediate" /> Intermediate
+      </label>
+      <label class="option">
+        <input type="radio" name="experience" value="expert" /> Expert
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Which gear do you usually bring? (select all that apply)</legend>
+      <label class="option">
+        <input type="checkbox" value="backpack" /> Backpack
+      </label>
+      <label class="option">
+        <input type="checkbox" value="tent" /> Tent
+      </label>
+      <label class="option">
+        <input type="checkbox" value="poles" /> Trekking poles
+      </label>
+      <label class="option">
+        <input type="checkbox" value="gps" /> GPS device
+      </label>
+    </fieldset>
+
+    <div class="field">
+      <label for="comments">Additional Comments</label>
+      <textarea
+        id="comments"
+        name="comments"
+        placeholder="Anything else you'd like to share..."
+      ></textarea>
+    </div>
+
+    <button id="submit" type="submit">Submit Survey</button>
+  </form>
+</body>
+</html>
